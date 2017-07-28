@@ -1,11 +1,11 @@
 {
     "name": "earnp/getui",
-    "description": "getui for laravel",
+    "description": "Laravel 5 Getui Package",
     "authors": [
         {
             "name": "lusong",
             "email": "714628712@qq.com",
-            "url": "https://phpartisan.cn"
+            "homepage": "https://phpartisan.cn"
         }
     ],
     "license": "MIT",
@@ -13,7 +13,7 @@
     "require": {},
     "autoload": {
       "psr-4": {
-        "Earnp\\Contact\\":"src/"
+        "Earnp\\Getui\\": "src/"
       }
     }
 }
