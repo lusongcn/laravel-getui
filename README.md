@@ -2,12 +2,36 @@
 每个APP都需要推送，在做后端的时候，我们肯定是需要个推来实现对APP推送消息，个推的使用功能特别多，如果自己单独去开发，一定浪费大量的时间，所以我集成了Laravel个推拓展，方便大家学习使用
 
 ####开发前的准备
-1、安装Laravel
-2、申请个推APPKEY，APPID，MASTERSECRET等
-3、有一个自己的测试CID，问APP开发人员要吧
+1. 1、安装Laravel
+1. 2、申请个推APPKEY，APPID，MASTERSECRET等
+1. 3、有一个自己的测试CID，问APP开发人员要吧
 
 ####安装拓展
+1.在 `composer.json` 的 `require` 里面加入以下内容：
+```php
+"earnp/getui": "v1.0"
+```
 
+2.添加完成后，执行 `composer update`
+```php
+composer update
+```
+3.等待下载安装完成，需要在`config/app.php`中注册服务提供者同时注册下相应门面：
+```php
+'providers' => [
+    //........
+    Earnp\Getui\GetuiServiceprovider::class,
+],
+
+'aliases' => [
+     //..........
+    'Getui'     => Earnp\Getui\Facades\Getui::class,
+],
+```
+服务注入以后，如果要使用自定义的配置，还可以发布配置文件到config目录：
+```php
+php artisan vendor:publish
+```
 
 ####其他接口
 
@@ -20,19 +44,19 @@ Getui::getUserDataByDate($date);
 返回参数：
 ```php
 [
-	"result" => "Success",
-	"data" => [
-	// 新注册用户数
-	"newRegistCount" => 512,
-	// 累计注册用户数
-	"registTotalCount" => 14349,
-	// 活跃用户数
-	"activeCount" => 1544,
-	// 在线用户数
-	"onlineCount" => 55,
-	"appId" => "kgnFIrWi8362tTpcEB3V34",
-	"date" => "20170726",
-	]
+  "result" => "Success",
+  "data" => [
+  // 新注册用户数
+  "newRegistCount" => 512,
+  // 累计注册用户数
+  "registTotalCount" => 14349,
+  // 活跃用户数
+  "activeCount" => 1544,
+  // 在线用户数
+  "onlineCount" => 55,
+  "appId" => "kgnFIrWi8362tTpcEB3V34",
+  "date" => "20170726",
+  ]
 ]
 ```
 
@@ -134,6 +158,7 @@ Getui::getPersonaTags();
 IGtNotificationTemplate
 
 $config配置信息如下
+
 参数 | 类型 | 说明
 ----|------|----
 type | str  | HIGH/SIMPLE SIMPLE代表简单模版，HIGH代表高级模版
@@ -146,6 +171,7 @@ logourl | str  | logo地址
 IGtLinkTemplate
 
 $config配置信息如下：
+
 参数 | 类型 | 说明
 ----|------|----
 title | str  | 消息标题
@@ -158,6 +184,7 @@ url | str  | url代表当点击弹窗跳转到的网址
 IGtNotyPopLoadTemplate
 
 $config配置信息如下：
+
 参数 | 类型 | 说明
 ----|------|----
 type | str  | notice/bomb/download notice代表通知栏，bomb代表弹框，download代表下载
@@ -169,6 +196,7 @@ loadurl | str  | loadurl代表当使用download模版时的下载地址
 #####透传消息模版，可传递参数
 IGtTransmissionTemplate
 $config配置信息如下
+
 参数 | 类型 | 说明
 ----|------|----
 type | str  | HIGH/SIMPLE SIMPLE代表简单模版，HIGH代表高级模版
@@ -262,10 +290,13 @@ $choice为发送给用户组的条件筛选
   "result" => "ok"
   "contentId" => "OSL-0728_hLKYR4tmkC7S0lI7QnSTT"
 ]
+```
 
 应用场景：
 1、对全部APP的用户推送消息
+
 2、对某个城市的人推送消息
+
 3、对某个年龄的人推送消息
 
 
