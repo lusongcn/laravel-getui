@@ -1,0 +1,19 @@
+{
+    "name": "earnp/getui",
+    "description": "getui for laravel",
+    "authors": [
+        {
+            "name": "lusong",
+            "email": "714628712@qq.com",
+            "url": "https://phpartisan.cn"
+        }
+    ],
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+      "psr-4": {
+        "Earnp\\Contact\\":"src/"
+      }
+    }
+}
