@@ -273,7 +273,7 @@ $choice = array(
         // 年龄选择
         "age"=>["10","11"]
     );
-$config = array("type" => "HIGH", "title" => "你有一条新消息", "body" => "贷贷还更新了哦，快去看看吧","logo"=>"","logourl"=>"");
+$config = array("type" => "HIGH", "title" => "你有一条新消息", "body" => "APP更新了哦，快去看看吧","logo"=>"","logourl"=>"");
 $test = Getui::pushMessageToApp($template,$config,$data,$choice);
 ```
 参数说明：  
