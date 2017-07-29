@@ -9,7 +9,7 @@
 # 安装拓展
 1.在 `composer.json` 的 `require` 里面加入以下内容：
 ```php
-"earnp/getui": "v1.0"
+"earnp/getui": "dev-master"
 ```
 
 2.添加完成后，执行 `composer update`
