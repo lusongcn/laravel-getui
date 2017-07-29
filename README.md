@@ -1,12 +1,12 @@
 个推是国内领先的推送技术服务商,提供安卓(Android)和iOS推送SDK,为APP开发者提供高效稳定推送技术服务;
 每个APP都需要推送，在做后端的时候，我们肯定是需要个推来实现对APP推送消息，个推的使用功能特别多，如果自己单独去开发，一定浪费大量的时间，所以我集成了Laravel个推拓展，方便大家学习使用
 
-#### 开发前的准备  
+# 开发前的准备  
 1. 安装Laravel  
 1. 申请个推APPKEY，APPID，MASTERSECRET等  
 1. 有一个自己的测试CID，问APP开发人员要吧  
 
-#### 安装拓展
+# 安装拓展
 1.在 `composer.json` 的 `require` 里面加入以下内容：
 ```php
 "earnp/getui": "v1.0"
@@ -33,9 +33,9 @@ composer update
 php artisan vendor:publish
 ```
 
-#### 其他接口
+# 其他接口
 
-##### 获取单日用户数据
+### 获取单日用户数据
 ```php
 Getui::getUserDataByDate($date);
 ```
@@ -60,7 +60,7 @@ Getui::getUserDataByDate($date);
 ]
 ```
 
-##### 获取单日推送数据
+### 获取单日推送数据
 ```php
 Getui::getPushDataByDate($date);
 ```
@@ -89,14 +89,14 @@ Getui::getPushDataByDate($date);
 ]
 ```
 
-##### 停止任务接口
+### 停止任务接口
 ```php
 Getui::stopPushTask($taskId);
 ```
 请求参数`taskId`,发送任务的taskId，在Push返回中获取  
 返回参数：`true`,`false`
 
-##### 查询用户状态
+### 查询用户状态
 ```php
 Getui::getUserStatus($CID);
 ```
@@ -112,7 +112,7 @@ Getui::getUserStatus($CID);
 ]
 ```
 
-##### 获取推送状态
+### 获取推送状态
 ```php
 Getui::getPushMessageResult($taskId);
 ```
@@ -125,7 +125,7 @@ Getui::getPushMessageResult($taskId);
 ]
 ```
 
-##### 通过标签获取用户总数
+### 通过标签获取用户总数
 ```php
 Getui::getUserCountByTags($tagList);
 ```
@@ -140,7 +140,7 @@ Getui::getUserCountByTags($tagList);
 ]
 ```
 
-##### 大数据综合分析用户得到的标签:即用户画像
+### 大数据综合分析用户得到的标签:即用户画像
 ```php
 Getui::getPersonaTags();
 ```
@@ -152,9 +152,9 @@ Getui::getPersonaTags();
 ]
 ```
 
-#### 消息模板
+# 消息模板
 
-##### 点击通知打开应用模板，可传递参数  
+### 点击通知打开应用模板，可传递参数  
 IGtNotificationTemplate  
 $config配置信息如下
 
@@ -166,7 +166,7 @@ body | str  | 消息内容
 logo | str  | logo
 logourl | str  | logo地址
 
-##### 点击通知打开网页模板  
+### 点击通知打开网页模板  
 IGtLinkTemplate  
 
 $config配置信息如下：
@@ -179,7 +179,7 @@ logo | str  | logo
 logourl | str  | logo地址
 url | str  | url代表当点击弹窗跳转到的网址
 
-##### 点击通知弹窗下载模板(iOS 不支持使用该模板)
+### 点击通知弹窗下载模板(iOS 不支持使用该模板)
 IGtNotyPopLoadTemplate  
 $config配置信息如下：  
 
@@ -191,7 +191,7 @@ body | str  | 消息内容
 logo | str  | logo
 loadurl | str  | loadurl代表当使用download模版时的下载地址
 
-##### 透传消息模版，可传递参数  
+### 透传消息模版，可传递参数  
 IGtTransmissionTemplate  
 $config配置信息如下
 
@@ -204,9 +204,9 @@ logo | str  | logo
 logourl | str  | logo地址
 
 
-#### 消息推送方式
+# 消息推送方式
 
-##### 对单个用户推送消息
+### 对单个用户推送消息
 
 ```php
 $template = "IGtTransmissionTemplate";
@@ -230,7 +230,7 @@ $CID为发送给某人具体CID，默认为config/getui.php中的测试CID
 ]
 ```
 
-##### 对指定列表用户推送消息
+### 对指定列表用户推送消息
 ```php
 $template = "IGtTransmissionTemplate";
 $data = "a";
@@ -250,12 +250,13 @@ $CID为发送给用户组的CID（列表模式），默认为config/getui.php中
   "result" => "ok"
   "contentId" => "OSL-0728_hLKYR4tmkC7S0lI7QnSTT"
 ]
+```
 应用场景：  
 场景1，对于抽奖活动的应用，需要对已知的某些用户推送中奖消息，就可以通过ClientID列表方式推送消息。  
 场景2，向新客用户发放抵用券，提升新客的转化率，就可以事先提取新客列表，将消息指定发送给这部分指定CID用户。  
 
 
-##### 对指定应用群推消息
+### 对指定应用群推消息
 ```php
 // 模版选择
 $template = "IGtTransmissionTemplate";
@@ -295,6 +296,6 @@ $choice为发送给用户组的条件筛选
 3、对某个年龄的人推送消息
 
 
-#### 推送接口模式
+# 推送接口模式
 推送接口包括https模式和http模式
 更改只需要修改`config/getui.php`中的`HTTPS`参数，`true`代表为Https推送接口，`false`代表为Http推送接口，默认为Http请求
