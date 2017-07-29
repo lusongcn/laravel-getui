@@ -1,10 +1,10 @@
 个推是国内领先的推送技术服务商,提供安卓(Android)和iOS推送SDK,为APP开发者提供高效稳定推送技术服务;
 每个APP都需要推送，在做后端的时候，我们肯定是需要个推来实现对APP推送消息，个推的使用功能特别多，如果自己单独去开发，一定浪费大量的时间，所以我集成了Laravel个推拓展，方便大家学习使用
 
-#### 开发前的准备
-1. 安装Laravel
-1. 申请个推APPKEY，APPID，MASTERSECRET等
-1. 有一个自己的测试CID，问APP开发人员要吧
+#### 开发前的准备  
+1. 安装Laravel  
+1. 申请个推APPKEY，APPID，MASTERSECRET等  
+1. 有一个自己的测试CID，问APP开发人员要吧  
 
 #### 安装拓展
 1.在 `composer.json` 的 `require` 里面加入以下内容：
@@ -40,7 +40,7 @@ php artisan vendor:publish
 Getui::getUserDataByDate($date);
 ```
 
-请求参数`date`,查询的日期（格式：yyyyMMdd）,比如：20170525
+请求参数`date`,查询的日期（格式：yyyyMMdd）,比如：20170525  
 返回参数：
 ```php
 [
@@ -65,7 +65,7 @@ Getui::getUserDataByDate($date);
 Getui::getPushDataByDate($date);
 ```
 
-请求参数`date`,查询的日期（格式：yyyyMMdd）,比如：20170525
+请求参数`date`,查询的日期（格式：yyyyMMdd）,比如：20170525  
 
 返回参数：
 ```php
@@ -93,14 +93,14 @@ Getui::getPushDataByDate($date);
 ```php
 Getui::stopPushTask($taskId);
 ```
-请求参数`taskId`,发送任务的taskId，在Push返回中获取
+请求参数`taskId`,发送任务的taskId，在Push返回中获取  
 返回参数：`true`,`false`
 
 ##### 查询用户状态
 ```php
 Getui::getUserStatus($CID);
 ```
-请求参数`CID`,用户唯一标识符,默认查询的是`config/getui.php`文件中的`CID`
+请求参数`CID`,用户唯一标识符,默认查询的是`config/getui.php`文件中的`CID`  
 
 ```php
 [
@@ -116,7 +116,7 @@ Getui::getUserStatus($CID);
 ```php
 Getui::getPushMessageResult($taskId);
 ```
-请求参数`taskId`,发送任务的taskId，在Push返回中获取
+请求参数`taskId`,发送任务的taskId，在Push返回中获取  
 返回参数：
 ```php
 [
@@ -129,7 +129,7 @@ Getui::getPushMessageResult($taskId);
 ```php
 Getui::getUserCountByTags($tagList);
 ```
-请求参数`tagList`,标签列表`Array`,比如：`array("laravel","php")`
+请求参数`tagList`,标签列表`Array`,比如：`array("laravel","php")`  
 
 返回参数：
 ```php
@@ -154,9 +154,8 @@ Getui::getPersonaTags();
 
 #### 消息模板
 
-##### 点击通知打开应用模板，可传递参数
-IGtNotificationTemplate
-
+##### 点击通知打开应用模板，可传递参数  
+IGtNotificationTemplate  
 $config配置信息如下
 
 参数 | 类型 | 说明
@@ -167,8 +166,8 @@ body | str  | 消息内容
 logo | str  | logo
 logourl | str  | logo地址
 
-##### 点击通知打开网页模板
-IGtLinkTemplate
+##### 点击通知打开网页模板  
+IGtLinkTemplate  
 
 $config配置信息如下：
 
@@ -181,9 +180,8 @@ logourl | str  | logo地址
 url | str  | url代表当点击弹窗跳转到的网址
 
 ##### 点击通知弹窗下载模板(iOS 不支持使用该模板)
-IGtNotyPopLoadTemplate
-
-$config配置信息如下：
+IGtNotyPopLoadTemplate  
+$config配置信息如下：  
 
 参数 | 类型 | 说明
 ----|------|----
@@ -193,8 +191,8 @@ body | str  | 消息内容
 logo | str  | logo
 loadurl | str  | loadurl代表当使用download模版时的下载地址
 
-##### 透传消息模版，可传递参数
-IGtTransmissionTemplate
+##### 透传消息模版，可传递参数  
+IGtTransmissionTemplate  
 $config配置信息如下
 
 参数 | 类型 | 说明
@@ -217,11 +215,11 @@ $config = array("type" => "HIGH", "title" => "你有一条新消息", "body" => 
 $CID = "";
 $test = Getui::pushMessageToSingle($template,$config,$data,$CID);
 ```
-参数说明：
-$template代表上一步的消息模板
-$data代表您推送的内容，具体询问APP开发人员，一般为JSON格式，如果只是普通的发送消息随意填写
-$config参考模版所需内容，这里使用透传为例
-$CID为发送给某人具体CID，默认为config/getui.php中的测试CID
+参数说明：  
+$template代表上一步的消息模板  
+$data代表您推送的内容，具体询问APP开发人员，一般为JSON格式，如果只是普通的发送消息随意填写  
+$config参考模版所需内容，这里使用透传为例  
+$CID为发送给某人具体CID，默认为config/getui.php中的测试CID  
 
 返回参数:
 ```php
@@ -240,11 +238,11 @@ $config = array("type" => "HIGH", "title" => "你有一条新消息", "body" => 
 $CID = "";
 $test = Getui::pushMessageToList($template,$config,$data,$CID);
 ```
-参数说明：
-$template代表上一步的消息模板
-$data代表您推送的内容，具体询问APP开发人员，一般为JSON格式，如果只是普通的发送消息随意填写
-$config参考模版所需内容，这里使用透传为例
-$CID为发送给用户组的CID（列表模式），默认为config/getui.php中的测试CID
+参数说明：  
+$template代表上一步的消息模板  
+$data代表您推送的内容，具体询问APP开发人员，一般为JSON格式，如果只是普通的发送消息随意填写  
+$config参考模版所需内容，这里使用透传为例  
+$CID为发送给用户组的CID（列表模式），默认为config/getui.php中的测试CID  
 
 返回参数:
 ```php
@@ -252,10 +250,9 @@ $CID为发送给用户组的CID（列表模式），默认为config/getui.php中
   "result" => "ok"
   "contentId" => "OSL-0728_hLKYR4tmkC7S0lI7QnSTT"
 ]
-应用场景：
-
-场景1，对于抽奖活动的应用，需要对已知的某些用户推送中奖消息，就可以通过ClientID列表方式推送消息。
-场景2，向新客用户发放抵用券，提升新客的转化率，就可以事先提取新客列表，将消息指定发送给这部分指定CID用户。
+应用场景：  
+场景1，对于抽奖活动的应用，需要对已知的某些用户推送中奖消息，就可以通过ClientID列表方式推送消息。  
+场景2，向新客用户发放抵用券，提升新客的转化率，就可以事先提取新客列表，将消息指定发送给这部分指定CID用户。  
 
 
 ##### 对指定应用群推消息
@@ -278,11 +275,11 @@ $choice = array(
 $config = array("type" => "HIGH", "title" => "你有一条新消息", "body" => "贷贷还更新了哦，快去看看吧","logo"=>"","logourl"=>"");
 $test = Getui::pushMessageToApp($template,$config,$data,$choice);
 ```
-参数说明：
-$template代表上一步的消息模板
-$data代表您推送的内容，具体询问APP开发人员，一般为JSON格式，如果只是普通的发送消息随意填写
-$config参考模版所需内容，这里使用透传为例
-$choice为发送给用户组的条件筛选
+参数说明：  
+$template代表上一步的消息模板  
+$data代表您推送的内容，具体询问APP开发人员，一般为JSON格式，如果只是普通的发送消息随意填写  
+$config参考模版所需内容，这里使用透传为例  
+$choice为发送给用户组的条件筛选  
 
 返回参数:
 ```php
@@ -292,11 +289,9 @@ $choice为发送给用户组的条件筛选
 ]
 ```
 
-应用场景：
-1、对全部APP的用户推送消息
-
-2、对某个城市的人推送消息
-
+应用场景：  
+1、对全部APP的用户推送消息  
+2、对某个城市的人推送消息  
 3、对某个年龄的人推送消息
 
 
