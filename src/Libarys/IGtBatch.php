@@ -1,5 +1,6 @@
 <?php
 namespace Earnp\Getui\Libarys;
+use Exception;
 /**
  * Created by PhpStorm.
  * User: Administrator
@@ -7,7 +8,7 @@ namespace Earnp\Getui\Libarys;
  * Time: 下午3:45
  */
 header("Content-Type: text/html; charset=utf-8");
-require_once(dirname(__FILE__) . '/' . 'IGt.Push.php');
+require_once(dirname(__FILE__) . '/' . 'IGtPush.php');
 
 class IGtBatch
 {

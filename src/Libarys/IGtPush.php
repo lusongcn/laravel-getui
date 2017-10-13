@@ -1,26 +1,27 @@
 <?php
 namespace Earnp\Getui\Libarys;
+use Exception;
 /**
  * VERSION 3.3.2.1
  */
 header("Content-Type: text/html; charset=utf-8");
 require_once(dirname(__FILE__) . '/' . 'protobuf/pb_message.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/IGt.Req.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/IGt.Message.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/IGt.AppMessage.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/IGt.ListMessage.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/IGt.SingleMessage.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/IGt.Target.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/template/IGt.BaseTemplate.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/template/IGt.LinkTemplate.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/template/IGt.NotificationTemplate.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/template/IGt.TransmissionTemplate.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/template/IGt.NotyPopLoadTemplate.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/template/IGt.APNTemplate.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/utils/GTConfig.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/utils/HttpManager.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/utils/ApiUrlRespectUtils.php');
-require_once(dirname(__FILE__) . '/' . 'igetui/utils/LangUtils.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/IGt.Req.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/IGt.Message.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/IGt.AppMessage.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/IGt.ListMessage.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/IGt.SingleMessage.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/IGt.Target.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/template/IGt.BaseTemplate.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/template/IGt.LinkTemplate.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/template/IGt.NotificationTemplate.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/template/IGt.TransmissionTemplate.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/template/IGt.NotyPopLoadTemplate.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/template/IGt.APNTemplate.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/utils/GTConfig.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/utils/HttpManager.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/utils/ApiUrlRespectUtils.php');
+require_once(dirname(__FILE__) . '/' . 'Igetui/utils/LangUtils.php');
 
 
 
