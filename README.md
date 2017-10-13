@@ -7,14 +7,9 @@
 1. 有一个自己的测试CID，问APP开发人员要吧  
 
 # 安装拓展
-1.在 `composer.json` 的 `require` 里面加入以下内容：
-```php
-"earnp/getui": "dev-master"
+1、运行如下代码安装拓展包：
 ```
-
-2.添加完成后，执行 `composer update`
-```php
-composer update
+composer require "earnp/getui:dev-master"
 ```
 3.等待下载安装完成，需要在`config/app.php`中注册服务提供者同时注册下相应门面：
 ```php
